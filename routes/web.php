@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
+});
+
+Route::get('/upload_render', function () {
+    return view('upload');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/register', function () {
+    return view('register');
 });
