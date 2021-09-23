@@ -20,6 +20,7 @@ class CreateContentTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('image_name');
+            $table->boolean('active')->default('0');
             $table->timestamps();
         });
     }
