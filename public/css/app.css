@@ -9908,6 +9908,10 @@ a.text-dark:hover, a.text-dark:focus {
   visibility: hidden !important;
 }
 
+.homepageimg{
+    width:100%;
+}
+
 @media print {
   *,
 *::before,
