@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
 
+                <div class="card">
+                    <div class="card-header">{{ $content->title }}</div>
 
+                    <div class="card-body">
+                        <img src="{{asset("storage/img/$content->image_name") }}" alt="bitch" class="homepageimg">
+                        <p>{{$content->description}}</p>
+                        <p>Creator: {{$username->name}}</p>
+
+                    </div>
+                </div>
+                <a href="http://127.0.0.1:8000/">< back</a>
+
+            </div>
+        </div>
+    </div>
 @endsection

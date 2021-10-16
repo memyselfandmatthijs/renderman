@@ -19,3 +19,5 @@ Route::get('/', [App\http\Controllers\HomeController::class, 'index'])->middlewa
 Auth::routes();
 
 Route::get('/content', [App\http\Controllers\ContentController::class, 'index']);
+
+Route::get('/details/{id}', [App\http\Controllers\DetailsController::class, "index"]);

@@ -25,7 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         $contents = Content::all();
-        //$title = Content::
 
         return view('home', compact('contents'));
     }
