@@ -25,3 +25,7 @@ Route::get('/details/{id}', [App\http\Controllers\DetailsController::class, 'ind
 Route::view('/new_post', 'newPost')->middleware('auth');
 
 Route::post('/finished_post', [App\http\Controllers\PostController::class, 'index']);
+
+Route::get('/manage_posts', [App\http\Controllers\ManagePostsController::class, 'index']);
+
+Route::get('/delete/{id}', [App\http\Controllers\DeleteController::class, 'index']);

@@ -11,7 +11,7 @@
 
                     <div class="card-body">
                         <img src="{{asset("storage/img/$content->image_name") }}" alt="bitch" class="homepageimg">
-                        <a href="url(/details/{{$content->id}})">Post details -></a>
+                        <a href="/details/{{$content->id}}">Post details -></a>
 
                     </div>
                 </div>
