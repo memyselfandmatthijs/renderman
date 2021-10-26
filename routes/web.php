@@ -29,3 +29,7 @@ Route::post('/finished_post', [App\http\Controllers\PostController::class, 'inde
 Route::get('/manage_posts', [App\http\Controllers\ManagePostsController::class, 'index']);
 
 Route::get('/delete/{id}', [App\http\Controllers\DeleteController::class, 'index']);
+
+Route::get('/modify/{id}', [App\http\Controllers\UpdateController::class, 'index']);
+
+Route::post('/finished_update_post/{id}', [App\http\Controllers\UpdateController::class, 'update']);
