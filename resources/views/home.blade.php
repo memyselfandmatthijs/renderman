@@ -11,7 +11,7 @@
 
                     <div class="card-body">
                         <img src="{{asset("storage/img/$content->image_name") }}" alt="bitch" class="homepageimg">
-                        <a href="http://127.0.0.1:8000/details/{{$content->id}}">Post details -></a>
+                        <a href="url(/details/{{$content->id}})">Post details -></a>
 
                     </div>
                 </div>
