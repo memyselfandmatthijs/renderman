@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Models\Tags;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\storage;
 
@@ -15,10 +16,12 @@ class PostController extends Controller{
         $post->description = $request->description;
         $post->user_id = $user_id;
         $post->image_name = $request->title;
-        $post->save();
-        storage::disk('images')->putFileAs("", "$request->image", "$request->title");
+
+        //$post->save();
+        //storage::disk('images')->putFileAs("", "$request->image", "$request->title");
 
         $id = Content::where('user_id', 1)->max('id');
-        return redirect("/details/$id");
+
+        //return redirect("/details/$id");
     }
 }

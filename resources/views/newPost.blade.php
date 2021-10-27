@@ -22,6 +22,12 @@
                         <input id="image" name="image" type="file">
                         <br><br>
 
+                        <label for="tags">tags:</label>
+                        <input id="tags" name="tags" type="text">
+                        <p>put a "," in between each tag</p>
+                        <br><br>
+
+
                         <input type="submit" value="save">
                     </form>
                 </div>

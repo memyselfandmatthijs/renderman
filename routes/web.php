@@ -33,3 +33,7 @@ Route::get('/delete/{id}', [App\http\Controllers\DeleteController::class, 'index
 Route::get('/modify/{id}', [App\http\Controllers\UpdateController::class, 'index']);
 
 Route::post('/finished_update_post/{id}', [App\http\Controllers\UpdateController::class, 'update']);
+
+Route::get('/add_tags', [App\http\Controllers\AddTagController::class, 'index']);
+
+Route::post('/save_tag', [App\http\Controllers\AddTagController::class, 'saveTag']);

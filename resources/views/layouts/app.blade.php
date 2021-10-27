@@ -26,12 +26,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Renderman
                 </a>
-                <a class="navbar-brand" href="{{url('/new_post')}}">
-                    New post
-                </a>
-                <a class="navbar-brand" href="{{url('/manage_posts')}}">
-                    Manage Posts
-                </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -57,7 +52,20 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/new_post')}}">New post</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/manage_posts')}}">Manage Posts</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/add_tags')}}">Add tags</a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -75,6 +83,7 @@
                                     </form>
                                 </div>
                             </li>
+
 
 
                         @endguest
