@@ -22,9 +22,15 @@
                         <input id="image" name="image" type="file">
                         <br><br>
 
-                        <label for="tags">tags:</label>
-                        <input id="tags" name="tags" type="text">
-                        <p>put a "," in between each tag</p>
+                        <div id="list1" class="dropdown-check-list" tabindex="100">
+                            <span class="anchor">Select tags</span>
+                            <ul class="items">
+                                @foreach($tags as $tag)
+                                <li><input name="tags[{{$tag->id}}]" type="checkbox" value="{{$tag->id}}"/> {{$tag->name}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+
                         <br><br>
 
 
@@ -35,5 +41,8 @@
             </div>
         </div>
     </div>
+@endsection
 
+@section('pagescript')
+    <script src="{{ asset('js/checklist.js') }}"></script>
 @endsection

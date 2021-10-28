@@ -20,6 +20,17 @@
                             <input id="description" name="description" type="text" value="{{$post->description}}">
                             <br><br>
 
+                            <div id="list1" class="dropdown-check-list" tabindex="100">
+                                <span class="anchor">Select tags</span>
+                                <ul class="items">
+                                    @foreach($tags as $tag)
+                                        <li><input name="tags[{{$tag->id}}]" type="checkbox" value="{{$tag->id}}"/> {{$tag->name}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                            <br><br>
+
                             <input type="submit" value="save">
                         </form>
                     </div>
@@ -27,4 +38,8 @@
             </div>
         </div>
 
+@endsection
+
+@section('pagescript')
+     <script src="{{ asset('js/checklist.js') }}"></script>
 @endsection

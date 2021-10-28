@@ -22,11 +22,11 @@ Route::get('/content', [App\http\Controllers\ContentController::class, 'index'])
 
 Route::get('/details/{id}', [App\http\Controllers\DetailsController::class, 'index']);
 
-Route::view('/new_post', 'newPost')->middleware('auth');
+Route::get('/new_post', [App\http\Controllers\PostController::class, 'index'])->middleware('auth');
 
-Route::post('/finished_post', [App\http\Controllers\PostController::class, 'index']);
+Route::post('/finished_post', [App\http\Controllers\PostController::class, 'savePost']);
 
-Route::get('/manage_posts', [App\http\Controllers\ManagePostsController::class, 'index']);
+Route::get('/manage_posts', [App\http\Controllers\ManagePostsController::class, 'index'])->middleware('auth');
 
 Route::get('/delete/{id}', [App\http\Controllers\DeleteController::class, 'index']);
 

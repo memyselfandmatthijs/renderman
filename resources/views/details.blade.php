@@ -12,7 +12,11 @@
                         <img src="{{asset("storage/img/$content->image_name") }}" alt="bitch" class="homepageimg">
                         <p>{{$content->description}}</p>
                         <p>Creator: {{$username->name}}</p>
-
+                        <div>
+                        @foreach($tags as $tag)
+                            <a>{{$tag}}</a>
+                        @endforeach
+                        </div>
                     </div>
                 </div>
                 <a href="{{url("/")}}">< back</a>
