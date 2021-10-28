@@ -22,6 +22,13 @@
                                     <td>
                                         <a href="{{url("/delete/$post->id")}}">delete</a>
                                     </td>
+                                    <td>
+                                        <form name="visibility-form" action="{{url('/handleActive')}}" method="POST">
+                                            @csrf
+                                            <input name="activeBtn" type="submit" value="@if($post->active == 1) invisible @else visible @endif">
+                                            <input name="id" type="hidden" value="{{$post->id}}">
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
 

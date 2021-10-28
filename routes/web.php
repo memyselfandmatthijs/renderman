@@ -28,15 +28,17 @@ Route::post('/finished_post', [App\http\Controllers\PostController::class, 'save
 
 Route::get('/manage_posts', [App\http\Controllers\ManagePostsController::class, 'index'])->middleware('auth');
 
-Route::get('/delete/{id}', [App\http\Controllers\DeleteController::class, 'index']);
+Route::post('/handleActive', [App\http\Controllers\ManagePostsController::class, 'visibility'])->middleware('auth');
 
-Route::get('/modify/{id}', [App\http\Controllers\UpdateController::class, 'index']);
+Route::get('/delete/{id}', [App\http\Controllers\DeleteController::class, 'index'])->middleware('auth');
 
-Route::post('/finished_update_post/{id}', [App\http\Controllers\UpdateController::class, 'update']);
+Route::get('/modify/{id}', [App\http\Controllers\UpdateController::class, 'index'])->middleware('auth');
 
-Route::get('/add_tags', [App\http\Controllers\AddTagController::class, 'index']);
+Route::post('/finished_update_post/{id}', [App\http\Controllers\UpdateController::class, 'update'])->middleware('auth');
 
-Route::post('/save_tag', [App\http\Controllers\AddTagController::class, 'saveTag']);
+Route::get('/add_tags', [App\http\Controllers\AddTagController::class, 'index'])->middleware('auth');
+
+Route::post('/save_tag', [App\http\Controllers\AddTagController::class, 'saveTag'])->middleware('auth');
 
 Route::get('/filter', [App\http\Controllers\FilterController::class, 'index']);
 

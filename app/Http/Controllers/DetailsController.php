@@ -13,6 +13,9 @@ class DetailsController extends Controller
     public function index($id){
 
         $content = content::findOrFail($id);
+        if($content->active == 1){
+            return redirect('/');
+        }
         $userid = $content->user_id;
         $username = user::findOrFail($userid);
         $tag_ids = Tag_combinations::all()->where('content_id', '=', $id);

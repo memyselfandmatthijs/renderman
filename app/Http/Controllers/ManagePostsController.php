@@ -2,6 +2,7 @@
 
 namespace App\http\Controllers;
 use App\Models\Content;
+use Illuminate\Http\Request;
 
 class ManagePostsController extends Controller
 {
@@ -10,6 +11,23 @@ class ManagePostsController extends Controller
         $posts = Content::all()->where('user_id', $id);
 
         return view('ManagePosts', compact('posts'));
+    }
+
+    public function visibility(Request $request){
+        $id = $request->id;
+        $checkStatus = Content::findOrFail($id);
+        $posts = Content::all();
+
+        $post = Content::findOrFail($id);
+        if($checkStatus->active == 1){
+            $post->active = 0;
+        }
+        else{
+            $post->active = 1;
+        }
+        $post->save();
+
+        return redirect('/manage_posts');
     }
 
 

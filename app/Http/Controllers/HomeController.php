@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $contents = Content::all();
+        $contents = Content::all()->where('active', 0);
 
         return view('home', compact('contents'));
     }
