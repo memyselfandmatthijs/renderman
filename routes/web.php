@@ -37,3 +37,7 @@ Route::post('/finished_update_post/{id}', [App\http\Controllers\UpdateController
 Route::get('/add_tags', [App\http\Controllers\AddTagController::class, 'index']);
 
 Route::post('/save_tag', [App\http\Controllers\AddTagController::class, 'saveTag']);
+
+Route::get('/filter', [App\http\Controllers\FilterController::class, 'index']);
+
+Route::post('/filterresults', [App\http\Controllers\FilterController::class, 'getResults']);
