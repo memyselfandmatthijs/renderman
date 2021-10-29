@@ -22,6 +22,8 @@ Route::get('/content', [App\http\Controllers\ContentController::class, 'index'])
 
 Route::get('/details/{id}', [App\http\Controllers\DetailsController::class, 'index']);
 
+Route::post('/handleLike', [App\http\Controllers\DetailsController::class, 'toggleLike'])->middleware('auth');
+
 Route::get('/new_post', [App\http\Controllers\PostController::class, 'index'])->middleware('auth');
 
 Route::post('/finished_post', [App\http\Controllers\PostController::class, 'savePost']);

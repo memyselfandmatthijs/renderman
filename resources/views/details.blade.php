@@ -17,6 +17,12 @@
                             <a>{{$tag}}</a>
                         @endforeach
                         </div>
+                        <p>likes: {{$likeCount}}</p>
+                        <form name="visibility-form" action="{{url('/handleLike')}}" method="POST">
+                            @csrf
+                            <input name="likeBtn" type="submit" value="@if(count($likeState) == 0) like @else liked @endif">
+                            <input name="content_id" type="hidden" value="{{$content->id}}">
+                        </form>
                     </div>
                 </div>
                 <a href="{{url("/")}}">< back</a>
