@@ -16,7 +16,6 @@ class ManagePostsController extends Controller
     public function visibility(Request $request){
         $id = $request->id;
         $checkStatus = Content::findOrFail($id);
-        $posts = Content::all();
 
         $post = Content::findOrFail($id);
         if($checkStatus->active == 1){

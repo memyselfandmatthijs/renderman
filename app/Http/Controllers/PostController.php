@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Tag_combinations;
 use App\Models\Tags;
+use App\Models\Upvotes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\storage;
-
 class PostController extends Controller{
 
     public function index(){
+        $user_id = auth()->id();
+
+        $deep_validation = count(Upvotes::all()->where('user_id', $user_id));
+
         $tags = Tags::all();
 
-        return view('newPost', compact('tags'));
+        return view('newPost', compact('tags', 'deep_validation'));
     }
 
     public function savePost(Request $request){
