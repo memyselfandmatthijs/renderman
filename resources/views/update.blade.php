@@ -13,11 +13,19 @@
                             @csrf
 
                             <label for="title">Title:</label>
-                            <input id="title" name="title" type="text" value="{{$post->title}}">
+                            <input id="title" name="title" type="text" value="{{$post->title}}" class="@error('description') is-invalid @enderror">
+
+                            @error('description')
+                            <div class="alert alert-danger">this description is invalid</div>
+                            @enderror
                             <br><br>
 
                             <label for="description">Description:</label>
-                            <input id="description" name="description" type="text" value="{{$post->description}}">
+                            <input id="description" name="description" type="text" value="{{$post->description}}" class="@error('description') is-invalid @enderror">
+
+                            @error('description')
+                            <div class="alert alert-danger">this description is invalid</div>
+                            @enderror
                             <br><br>
 
                             <div id="list1" class="dropdown-check-list" tabindex="100">

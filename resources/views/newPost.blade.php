@@ -12,11 +12,19 @@
                             @csrf
 
                             <label for="title">Title:</label>
-                            <input id="title" name="title" type="text">
+                            <input id="title" name="title" type="text" class="@error('title') is-invalid @enderror">
+
+                            @error('title')
+                            <div class="alert alert-danger">this title is invalid</div>
+                            @enderror
                             <br><br>
 
                             <label for="description">Description:</label>
-                            <input id="description" name="description" type="text">
+                            <input id="description" name="description" type="text" class="@error('description') is-invalid @enderror">
+
+                            @error('description')
+                            <div class="alert alert-danger">this description is invalid</div>
+                            @enderror
                             <br><br>
 
                             <label for="image">Upload image:</label>
@@ -36,7 +44,7 @@
                         </form>
                     </div>
 
-            @elseif($deep_validation)
+            @else
                <div class="card">
                    <div class="card-header">What a pity</div>
 

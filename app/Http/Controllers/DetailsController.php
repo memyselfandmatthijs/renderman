@@ -67,31 +67,6 @@ class DetailsController extends Controller
             $likeState[0]->delete();
         }
 
-        //get the tags related to the post
-        $tag_ids = Tag_combinations::all()->where('content_id', '=', $content_id);
-        $tags = [];
-        foreach ($tag_ids as $tag_id) {
-            $tag_id = $tag_id->tag_id;
-            $tag = Tags::findOrFail($tag_id);
-            array_push($tags, $tag->name);
-        }
-
-        //get the amount of likes for this post
-        $likeCount = count(Upvotes::all()->where('content_id', $content_id));
-
-        //check if the person currently logged in has liked the post
-        $likeState = Upvotes::select('*')
-            ->where('content_id', $content_id)
-            ->where('user_id', auth()->id())
-            ->get();
-
-        //get the post information from the database
-        $content = content::findOrFail($content_id);
-        if ($content->active == 1) {
-            return redirect('/');
-        }
-
-        //return view('Details', compact('content', 'username', 'tags', 'likeCount', 'likeState'));
         return redirect("/details/$content_id");
     }
 }

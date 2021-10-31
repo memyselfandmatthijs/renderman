@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <form name="filter-form" action="{{url('/filterresults')}}" method="POST">
                             @csrf
-                            <label for="tag">Tag:
+                            <label for="tag">Tag:</label>
                                 <ul class="items">
                                     @foreach($tags as $tag)
                                         <li>
@@ -25,6 +25,18 @@
             </div>
 
             <div class="col-md-8">
+                <form name="searchbar" action="{{url('/search')}}" method="POST">
+                    @csrf
+                    <input name="searchTerm" type="text" class="@error('search') is-invalid @enderror">
+
+                    @error('description')
+                    <div class="alert alert-danger">this is an invalid array of search terms</div>
+                    @enderror
+
+                    <input type="submit" value="search">
+                </form>
+
+                <br>
 
                 <div class="card">
                     @if(isset($usedTags) && count($posts) >= 0)
@@ -33,7 +45,7 @@
 
                     @if(count($posts) == 0)
                     <div class="card-body">
-                            <p>there are no posts related to these tags</p>
+                            <p>there are no posts related to these tags/words</p>
                     </div>
                     @endif
                 </div>

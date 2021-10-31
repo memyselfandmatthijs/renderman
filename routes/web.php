@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/' , [App\http\Controllers\HomeController::class, 'index']);
 
-Route::get('/', [App\http\Controllers\HomeController::class, 'index']);
+Route::redirect('/home', '/');
 
 Auth::routes();
 
@@ -42,6 +43,12 @@ Route::get('/add_tags', [App\http\Controllers\AddTagController::class, 'index'])
 
 Route::post('/save_tag', [App\http\Controllers\AddTagController::class, 'saveTag'])->middleware('auth');
 
-Route::get('/filter', [App\http\Controllers\FilterController::class, 'index']);
+Route::post('/filter', [App\http\Controllers\FilterController::class, 'index']);
 
 Route::post('/filterresults', [App\http\Controllers\FilterController::class, 'getResults']);
+
+Route::post('/search', [App\http\Controllers\FilterController::class, 'search']);
+
+Route::get('/editProfile', [App\http\Controllers\updateProfileController::class, 'index']);
+
+Route::post('/saveProfile', [App\http\Controllers\updateProfileController::class, 'save']);

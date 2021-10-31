@@ -33,6 +33,8 @@
                             @endforeach
 
                         </table>
+                        <br><br>
+                        <a href="{{url('/new_post')}}">New Post</a>
                 </div>
         </div>
     </div>

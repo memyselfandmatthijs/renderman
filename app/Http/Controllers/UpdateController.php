@@ -16,6 +16,12 @@ class UpdateController extends Controller{
     }
 
     public function update(Request $request, $id){
+        $request->validate([
+            'title' => 'required|max:50',
+            'description' => 'required',
+            'tags' => 'required',
+        ]);
+
         $post = Content::find($id);
 
         echo "new: $request->title";

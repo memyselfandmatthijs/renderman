@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tags;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
 class AddTagController extends Controller{
     public function index(){
+        $id = auth()->id();
+
+        $checkAdmin = User::findOrFail($id);
+        $admin = $checkAdmin->admin;
+
+        if($admin < 1){
+            return redirect('/');
+        }
+
         $tags = Tags::all();
         $status = "";
 
@@ -15,6 +25,10 @@ class AddTagController extends Controller{
     }
 
     public function saveTag(Request $request){
+        $request->validate([
+            'tag' => 'required|max:50'
+        ]);
+
         $tags = Tags::all();
 
         $checkTag = Tags::where('name', $request->tag)->get();

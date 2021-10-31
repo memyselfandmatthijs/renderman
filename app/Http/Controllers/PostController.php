@@ -21,6 +21,13 @@ class PostController extends Controller{
     }
 
     public function savePost(Request $request){
+        $request->validate([
+            'title' => 'required|max:50',
+            'description' => 'required',
+            'image' => 'required',
+            'tags' => 'required',
+        ]);
+
         $user_id = auth()->id();
         $post = new Content;
         $post->title = $request->title;
